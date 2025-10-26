@@ -1,4 +1,4 @@
-site_name: Java Lab 
+site_name: FIP2 - Programmation Avancée
 theme: 
   name: material
   palette:
@@ -14,8 +14,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     
 nav:
-  - Home: index.md
+  - Accueil: index.md
   - Cours: cours/index.md
-  - Labs: 
-      - 1- Itérations : tp/tp01.md
-  - Java Cheatsheet: cheat.md
+  - Travaux Pratiques: 
+      - TP-01 : tp/tp01.md
