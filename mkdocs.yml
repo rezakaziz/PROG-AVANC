@@ -17,4 +17,4 @@ nav:
   - Accueil: index.md
   - Cours: cours/index.md
   - Travaux Pratiques: 
-      - TP-01 : tp/tp01.md
+      - TP-01 : tp/tp01/tp01.md
