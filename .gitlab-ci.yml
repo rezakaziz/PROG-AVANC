@@ -1,0 +1,37 @@
+image: python:3.11
+
+stages:
+  - build
+  - deploy
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  key: mkdocs-material
+  paths:
+    - .cache/pip
+
+before_script:
+  - pip install mkdocs-material
+
+build:
+  stage: build
+  script:
+    - mkdocs build --clean
+  artifacts:
+    paths:
+      - site
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+
+pages:
+  stage: deploy
+  script:
+    - mv site public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+
