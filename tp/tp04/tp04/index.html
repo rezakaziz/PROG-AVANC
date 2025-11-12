@@ -1,0 +1,754 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../tp03/tp03/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>TP-04 - FIP2 - Programmation Avancée</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-04-introduction-aux-design-patterns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-header__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FIP2 - Programmation Avancée
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-04
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-nav__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FIP2 - Programmation Avancée
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp01/tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp02/tp02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp03/tp03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-le-pattern-decorateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Le pattern Décorateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-le-pattern-composite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Le pattern Composite
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-le-pattern-decorateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Le pattern Décorateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-le-pattern-composite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Le pattern Composite
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-04-introduction-aux-design-patterns">TP 04 : Introduction aux <em>Design Patterns</em></h1>
+<p><a href="../tp04.zip">⬇️ Télécharger le TP (tp04.zip)</a></p>
+<div class="admonition note">
+<p class="admonition-title">Objectif du TP</p>
+<p>L’objectif de ce TP est de découvrir et de pratiquer les <strong>design patterns structurels</strong> à travers des exemples simples et concrets.<br />
+Vous allez ici manipuler deux patterns :</p>
+<ul>
+<li>les <strong>décorateur</strong> </li>
+<li>les <strong>composites</strong> </li>
+</ul>
+<p>💡 Ce TP met l’accent sur la <strong>réutilisabilité</strong>, la <strong>composition d’objets</strong> et la <strong>séparation des responsabilités</strong>.</p>
+</div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Instructions préliminaires</p>
+<p>Avant de commencer ce TP, vous devez :</p>
+<ol>
+<li>Créer un <strong>nouveau dépôt GitHub</strong> nommé <code>tp04-patterns</code>.  </li>
+<li>Ajouter le compte <strong><a href="https://github.com/rezakaziz">@rezakaziz</a></strong> comme <strong>collaborateur</strong> du projet.  </li>
+<li>Clonez votre dépôt en local et travaillez dessus pour les exercices suivants.  </li>
+<li>Commitez et poussez régulièrement vos modifications :
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;progression&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div></li>
+</ol>
+</div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>Les tests unitaires sont à écrire par l'étudiant.</p>
+</div>
+<h2 id="exercice-1-le-pattern-decorateur">Exercice 1 : Le pattern <em>Décorateur</em></h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Ce premier exercice s’inspire de la bibliothèque <code>itertools</code> de Python.<br />
+L’objectif est de travailler sur des <strong>séquences de chaînes de caractères</strong>, en construisant progressivement une hiérarchie d’objets qui permettent de <em>décorer</em> une séquence existante avec des comportements supplémentaires.  </p>
+<p>On suppose qu’on dispose d’une <strong>interface</strong> <code>Sequence</code> définissant une méthode :
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="nf">ligneSuivante</span><span class="p">();</span>
+</code></pre></div>
+ainsi qu’une implémentation de base, <code>ArraySequence</code>, qui s’appuie sur un tableau de <code>String</code>.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Décorateur UpperCase</p>
+<p>Écrivez et testez une classe <code>UpperCaseDecoratorSequence</code>, qui sera un <strong>décorateur</strong> de <code>Sequence</code>.<br />
+Elle renverra les chaînes de caractères en <strong>majuscules</strong>.</p>
+<p>💡 <em>Rappel :</em> un décorateur doit <strong>implémenter la même interface</strong> que l’objet qu’il décore, et <strong>déléguer</strong> une partie du comportement à l’objet décoré.</p>
+<p>✅ Exemple :
+<div class="highlight"><pre><span></span><code><span class="n">Sequence</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpperCaseDecoratorSequence</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArraySequence</span><span class="p">(</span><span class="n">lignes</span><span class="p">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">ligneSuivante</span><span class="p">());</span>
+</code></pre></div></p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Décorateur Grep</p>
+<p>Écrivez et testez une classe <code>GrepSequence</code>, qui sera un décorateur filtrant les lignes d’une autre séquence selon un texte donné.  </p>
+<p>Exemple d’utilisation :
+<div class="highlight"><pre><span></span><code><span class="n">GrepSequence</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GrepSequence</span><span class="p">(</span><span class="n">autreSequence</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;chemin&quot;</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">ligneSuivante</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>affiche uniquement les lignes de <code>autreSequence</code> contenant le mot <code>"chemin"</code>.</p>
+<p>💭 <strong>Pistes de réflexion</strong>
+- Pourquoi un décorateur est-il plus flexible qu’un héritage direct ?
+- Que se passerait-il si on voulait combiner <code>UpperCaseDecoratorSequence</code> et <code>GrepSequence</code> ?</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 3 — Décorateur LineNumber</p>
+<p>Écrivez et testez une classe <code>LineNumberSequence</code>, qui sera un décorateur de <code>Sequence</code> maintenant en mémoire le <strong>numéro de la dernière ligne lue</strong>.  </p>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code><span class="n">LineNumberSequence</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineNumberSequence</span><span class="p">(</span><span class="n">autreSequence</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">ligneSuivante</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getLineNumber</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>💡 <strong>Idée clé :</strong>
+- Vous pouvez stocker le compteur de lignes dans une variable d’instance incrémentée à chaque lecture.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 4 — Décorateur Slice</p>
+<p>Créez une classe <code>SliceSequence</code>, qui sera un décorateur renvoyant <strong>seulement une partie</strong> des lignes de la séquence d’origine.<br />
+Le constructeur prendra deux entiers :
+- <code>start</code> : indice de la première ligne incluse
+- <code>end</code> : indice de la première ligne à ignorer.</p>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code><span class="n">SliceSequence</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SliceSequence</span><span class="p">(</span><span class="n">autreSequence</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">ligneSuivante</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+Cet exemple affiche les lignes de 10 (incluse) à 20 (exclue).</p>
+<p>💡 <strong>Astuce :</strong>
+Réutilisez votre implémentation de la <code>LineNumberSequence</code> pour simplifier la gestion des indices !</p>
+</div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">À retenir</p>
+<p>Le <strong>pattern Décorateur</strong> permet :</p>
+<ul>
+<li>d’ajouter dynamiquement des responsabilités à un objet ;</li>
+<li>de composer des comportements sans explosion de sous-classes ;</li>
+<li>et de respecter le <strong>principe ouvert/fermé</strong> (<em>Open/Closed Principle</em> de SOLID*).</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-2-le-pattern-composite">Exercice 2 : Le pattern <em>Composite</em></h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Cet exercice s’appuie sur la représentation d’un document <strong>XML</strong> sous forme d’arbre d’objets.<br />
+Chaque nœud du document (élément, texte, attribut…) est un objet d’une hiérarchie commune.<br />
+Le but est de <strong>générer du XML à partir de cette structure</strong>, selon le pattern <strong>Composite</strong>.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Génération XML</p>
+<p>On vous fournit une implémentation du <strong>composite XML</strong> et un exemple montrant comment extraire le texte contenu dans tout le document.</p>
+<p>Vous devez implémenter la méthode :
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="nf">toXML</span><span class="p">();</span>
+</code></pre></div>
+pour les différentes classes du composite.</p>
+<p>💡 <strong>Règle d’affichage :</strong></p>
+<ul>
+<li>Les attributs doivent être listés <strong>par ordre alphabétique</strong> de leur nom (pour un comportement déterministe).</li>
+<li>Vous pouvez ignorer les différences entre balises vides <code>&lt;img/&gt;</code> et <code>&lt;img&gt;&lt;/img&gt;</code>.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Réflexion sur les patterns utilisés</p>
+<p>💭 <strong>Analysez</strong> votre code :</p>
+<ul>
+<li>Quels avantages concrets vous apportent les patterns <em>Décorateur</em> et <em>Composite</em> ?  </li>
+<li>Quels problèmes d’évolution ou de maintenance auraient pu apparaître sans eux ?  </li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
