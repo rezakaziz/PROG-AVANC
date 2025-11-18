@@ -10,11 +10,12 @@ Il aborde la **métaprogrammation**, la **généricité**, la **conception orien
 | Séance | Cours | TP |
 |:------|:--------------------------------|:----------------------------|
 | 01 | Introspection et annotations | Afficheur / Label |
-| 02 | Généricité : types paramétrés et bornes | MaListe |
-| 03 | Conception orientée objet (principes SOLID, refactoring) | Logger |
-| 04 | Design Patterns (introduction) : Décorateur, Composite | Séquence / Composite |
-| 05 | Patterns de création ; Template Method | Builder / Template Method |
-| 06 | TP dédié : Application de Template Method | Implémentation complète |
-| 07 | Pattern Visiteur et évaluation d’expressions | Évaluation d’expressions |
-| 08 | Inversion de dépendances et injection | Étude de cas |
-| 09 | Évaluation finale | — |
+| 02 | Généricité en Java | MaListe |
+| 03 | Conception orientée objet (principes SOLID, refactoring) | Logger/Dumper/Demeter |
+| 04 | Introduction aux  Design Patterns (Patterns de Structure) | Décorateur, Composite|
+| 05 | Introduction aux  Design Patterns (Patterns de création)  | Prototype/Builder |
+| 06 | Introduction aux  Design Patterns (Patterns de comportement) | Template Method |
+| 07 | Introduction aux  Design Patterns (Patterns de comportement) | Visiteur |
+| 08 | Inversion de dépendances et injection | Dependency Injection et Guice |
+| 09 | Etude de cas  | Etude de cas  |
+| 10 | Évaluation finale | — |
