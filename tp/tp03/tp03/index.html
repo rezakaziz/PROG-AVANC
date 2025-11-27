@@ -1,0 +1,877 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../tp02/tp02/">
+      
+      
+        <link rel="next" href="../../tp04/tp04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>TP-03 - FIP2 - Programmation Avancée</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-03-rappels-de-conception-objet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-header__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FIP2 - Programmation Avancée
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-nav__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FIP2 - Programmation Avancée
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp01/tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp02/tp02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-suppression-du-couplage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Suppression du couplage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-loi-de-demeter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Loi de Déméter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-solid-et-refactorisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : SOLID et refactorisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp04/tp04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp05/tp05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp06/tp06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-suppression-du-couplage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Suppression du couplage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-loi-de-demeter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Loi de Déméter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-solid-et-refactorisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : SOLID et refactorisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-03-rappels-de-conception-objet">TP 03 : Rappels de conception objet</h1>
+<p><a href="../tp03.zip">⬇️ Télécharger le TP (tp03.zip)</a></p>
+<div class="admonition note">
+<p class="admonition-title">Objectif du TP</p>
+<p>L’objectif de ce TP est de consolider vos connaissances en <strong>programmation orientée objet</strong> :<br />
+- réduction du <strong>couplage</strong> entre classes,<br />
+- respect de la <strong>loi de Déméter</strong>,<br />
+- et mise en pratique de principes de <strong>bonne conception logicielle</strong> (interfaces, dépendances inversées, réutilisabilité).</p>
+</div>
+<div class="admonition note instructions préliminaires">
+<p class="admonition-title">Note</p>
+<p>Avant de commencer ce TP, vous devez :</p>
+<ol>
+<li>Créer un <strong>nouveau dépôt GitHub</strong> nommé <code>tp03-conception-objet</code>.  </li>
+<li>Ajouter le compte <strong><a href="https://github.com/rezakaziz">@rezakaziz</a></strong> comme <strong>collaborateur</strong> du projet.  </li>
+<li>Allez dans <code>Settings</code> → <code>Collaborators</code> → <code>Add people</code> → recherchez <code>rezakaziz</code>.</li>
+<li>Clonez votre dépôt en local et travaillez dessus pour les exercices suivants.  </li>
+<li>Commitez et poussez régulièrement vos modifications (<code>git add .</code>, <code>git commit -m "progression"</code>, <code>git push</code>).</li>
+</ol>
+</div>
+<hr />
+<h2 id="exercice-1-suppression-du-couplage">Exercice 1 : Suppression du couplage</h2>
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Réduire le couplage avec un logger</p>
+<p>Un logiciel de calcul enregistre (ou <em>logge</em>) ses étapes pour permettre une vérification ultérieure.<br />
+L’implémentation actuelle se trouve dans le package <code>exo1q1v1</code>.</p>
+<p>Cependant, la classe <code>FileLogger</code> utilisée rend les tests unitaires difficiles à écrire et à maintenir.</p>
+<p>💭 <strong>Analyse du problème</strong></p>
+<ul>
+<li>Les exceptions lancées par le logger sont-elles bien gérées dans le code actuel ?  </li>
+<li>Pourquoi cette approche rend-elle le logiciel moins flexible ?</li>
+</ul>
+<p>💡 <strong>Travail demandé</strong></p>
+<ol>
+<li>Dans le package <code>exo1q1v2</code>, créez une <strong>interface</strong> pour réduire le couplage.</li>
+<li>Fournissez <strong>trois implémentations</strong> :<ul>
+<li><code>NullLogger</code> : ne fait rien (utile pour désactiver les logs)  </li>
+<li><code>MemoryLogger</code> : stocke les messages dans une <code>ArrayList&lt;String&gt;</code> (utile pour les tests)  </li>
+<li><code>FileLogger</code> : reprend le comportement initial (écriture dans un fichier)</li>
+</ul>
+</li>
+<li>Modifiez le code du calcul pour qu’il dépende de l’<strong>interface</strong> et non plus d’une classe concrète.</li>
+<li><strong>Réfléchissez</strong> : qui doit instancier le logger et pourquoi ?  </li>
+</ol>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Exportation flexible du catalogue</p>
+<p>On dispose d’une classe <code>Catalogue</code> représentant un ensemble de produits.<br />
+Dans le package <code>exo1q2v1</code>, cette classe peut exporter son contenu au format <strong>XML</strong> via une classe <code>XMLDumper</code>.</p>
+<p>Cependant, le couplage entre <code>Catalogue</code> et <code>XMLDumper</code> est <strong>trop fort</strong> :<br />
+la classe <code>Catalogue</code> ne devrait pas dépendre d’un format spécifique.</p>
+<p>💭 <strong>Problème à résoudre</strong></p>
+<ul>
+<li>Pourquoi le fait que <code>Catalogue</code> appelle directement <code>XMLDumper</code> pose-t-il problème ?  </li>
+<li>Comment rendre cette architecture extensible pour d’autres formats (JSON, YAML, etc.) ?</li>
+</ul>
+<p>💡 <strong>Travail demandé</strong></p>
+<ol>
+<li>Concevez une <strong>abstraction</strong> qui sépare la logique métier (<code>Catalogue</code>) du format d’exportation.  </li>
+<li>Implémentez au moins deux exporteurs :<ul>
+<li><code>XMLDumper</code> : exporte en XML (implémentation existante adaptée à la nouvelle interface)</li>
+<li><code>JSONDumper</code> : exporte en JSON</li>
+</ul>
+</li>
+<li>(Optionnel, si vous avez le temps) : ajoutez un <code>YAMLExporter</code><br />
+   → Pensez à gérer la profondeur d’écriture avec une variable d’instance.</li>
+<li>Testez votre architecture en vérifiant qu’un changement de format ne nécessite <strong>aucune modification</strong> du code de <code>Catalogue</code>.</li>
+</ol>
+<p>📘 Exemple attendu pour le JSON (indentation facultative) :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;catalogue&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;produit&quot;</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span>
+<span class="w">                    </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;designation&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span><span class="nt">&quot;texte&quot;</span><span class="p">:</span><span class="s2">&quot;souris&quot;</span><span class="p">]},</span>
+<span class="w">                    </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;prix&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span><span class="nt">&quot;texte&quot;</span><span class="p">:</span><span class="s2">&quot;30.0&quot;</span><span class="p">]}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;produit&quot;</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span>
+<span class="w">                    </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;designation&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span><span class="nt">&quot;texte&quot;</span><span class="p">:</span><span class="s2">&quot;ordi&quot;</span><span class="p">]},</span>
+<span class="w">                    </span><span class="p">{</span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="s2">&quot;prix&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;contenu&quot;</span><span class="p">:[</span><span class="nt">&quot;texte&quot;</span><span class="p">:</span><span class="s2">&quot;600.0&quot;</span><span class="p">]}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<hr />
+<h2 id="exercice-2-loi-de-demeter">Exercice 2 : Loi de Déméter</h2>
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Comprendre et appliquer la loi de Déméter</p>
+<p>On dispose de l’architecture suivante représentant une entreprise :</p>
+<p><img alt="" src="../images/architecture1.png" width="50%" /></p>
+<details class="note">
+<summary>PlantUML</summary>
+<div class="highlight"><pre><span></span><code>@startuml
+skin rose
+class Employé {
+    nom
+}
+Entreprise o- Département
+Département o- Service
+Service o-- Equipe
+Equipe o--- Employé
+Equipe --&gt; Employé : directeur
+@enduml
+</code></pre></div>
+</details>
+<p>Une méthode du programme vise à retourner la liste des <strong>noms des directeurs d’équipe</strong>.</p>
+<p>💭 <strong>Questions de réflexion</strong></p>
+<ul>
+<li>Cette méthode respecte-t-elle la <strong>loi de Déméter</strong> ? </li>
+<li>Quels sont les symptômes d’une violation de cette loi dans le code actuel ?</li>
+<li>Que se passerait-il si la hiérarchie de classes changeait (ajout d’un niveau, renommage, etc.) ?</li>
+</ul>
+<p>💡 <strong>Travail demandé</strong></p>
+<ul>
+<li>Refactorez la méthode de manière à respecter la loi de Déméter.  </li>
+<li>Testez que la méthode fonctionne toujours après la modification.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Généraliser la notion de direction</p>
+<p>On découvre ensuite que <strong>toutes les entités</strong> (Entreprise, Département, Service, Équipe) peuvent avoir un <strong>directeur</strong>.</p>
+<p>Le modèle devient alors :</p>
+<p><img alt="" src="../images/architecture2.png" width="50%" /></p>
+<details class="note">
+<summary>PlantUML</summary>
+<div class="highlight"><pre><span></span><code>@startuml
+skin rose
+Interface AvecDirecteur
+AvecDirecteur -&gt; Employé : directeur
+class Employé {
+    nom
+}
+Entreprise o- Département
+Département o- Service
+Service o- Equipe
+
+Entreprise --|&gt; AvecDirecteur
+Département --|&gt; AvecDirecteur
+Service --|&gt; AvecDirecteur
+Equipe --|&gt; AvecDirecteur
+@enduml
+</code></pre></div>
+</details>
+<p>💭 <strong>Réflexion</strong></p>
+<ul>
+<li>Comment adapter votre solution précédente pour qu’elle fonctionne avec cette nouvelle hiérarchie ?  </li>
+<li>Votre code reste-t-il conforme à la <strong>loi de Déméter</strong> ?</li>
+<li>Faut-il introduire une abstraction (interface, méthode commune, ou visiteur) pour traiter toutes ces entités de manière uniforme ?</li>
+</ul>
+<p>💡 <strong>Travail demandé</strong></p>
+<ul>
+<li>Refactorez votre code pour intégrer la notion d’<code>AvecDirecteur</code>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-3-solid-et-refactorisation">Exercice 3 : SOLID et refactorisation</h2>
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Identifier les violations des principes SOLID</p>
+<p>💭 <strong>Travail d’analyse</strong></p>
+<ul>
+<li>Parcourez votre code des exercices précédents.  </li>
+<li>Pour chaque principe SOLID (<strong>SRP, OCP, LSP, ISP, DIP</strong>), identifiez :<ul>
+<li>un endroit où le principe est <strong>respecté</strong> ;</li>
+<li>un endroit où il est <strong>violé</strong> (même légèrement).  </li>
+</ul>
+</li>
+<li>Justifiez vos réponses.</li>
+</ul>
+<p>💡 <strong>Extension possible</strong></p>
+<ul>
+<li>Proposez des <strong>refactorisation</strong> pour corriger les violation identifiée.  </li>
+</ul>
+</div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Remarque</p>
+<p>Pour créer un site web avec le rapport de test, utilisez la commande Maven suivante :</p>
+<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>surefire-report:report
+</code></pre></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
