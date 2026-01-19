@@ -1,5 +1,5 @@
 site_name: FIP2 - Programmation Avancée
-theme: 
+theme:
   name: material
   palette:
     primary: red
@@ -13,18 +13,17 @@ markdown_extensions:
   - md_in_html
   - pymdownx.blocks.caption
 
-
-
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    
+
 nav:
   - Accueil: index.md
   - Cours: cours/index.md
-  - Travaux Pratiques: 
-      - TP-01 : tp/tp01/tp01.md
-      - TP-02 : tp/tp02/tp02.md
-      - TP-03 : tp/tp03/tp03.md
-      - TP-04 : tp/tp04/tp04.md
-      - TP-05 : tp/tp05/tp05.md
-      - TP-06 : tp/tp06/tp06.md
+  - Travaux Pratiques:
+      - TP-01: tp/tp01/tp01.md
+      - TP-02: tp/tp02/tp02.md
+      - TP-03: tp/tp03/tp03.md
+      - TP-04: tp/tp04/tp04.md
+      - TP-05: tp/tp05/tp05.md
+      - TP-06: tp/tp06/tp06.md
+      - TP-07: tp/tp07/tp07.md
