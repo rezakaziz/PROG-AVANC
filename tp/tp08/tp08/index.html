@@ -1,0 +1,921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../tp07/tp07/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>TP-08 - FIP2 - Programmation Avancée</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-08-dependency-injection-et-guice" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-header__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FIP2 - Programmation Avancée
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-08
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FIP2 - Programmation Avancée" class="md-nav__button md-logo" aria-label="FIP2 - Programmation Avancée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FIP2 - Programmation Avancée
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp01/tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp02/tp02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp03/tp03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp04/tp04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp05/tp05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp06/tp06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp07/tp07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-08
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte général
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte général
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-08-dependency-injection-et-guice">TP 08 : <em>Dependency Injection</em> et <strong>Guice</strong></h1>
+<p><a href="../tp08.zip">⬇️ Télécharger le TP (tp08.zip)</a></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Objectif du TP</p>
+<p>L’objectif de ce TP est de comprendre et maîtriser le principe d’<strong>injection de dépendances</strong>,
+ainsi que son implémentation à l’aide du framework <strong>Guice</strong>.</p>
+<p>Vous allez :</p>
+<ul>
+<li>identifier les limites d’une architecture basée sur des <strong>singletons</strong> ;</li>
+<li>rendre explicites les dépendances entre les classes ;</li>
+<li>appliquer le principe d’<strong>inversion de dépendances (DIP)</strong> ;</li>
+<li>structurer une application selon une <strong>architecture en couches</strong> ;</li>
+<li>écrire un code métier <strong>testable, découplé et maintenable</strong>.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Instructions préliminaires</p>
+<p>Avant de commencer ce TP, vous devez :</p>
+<ol>
+<li>Créer un <strong>nouveau dépôt GitHub</strong> nommé <code>tp08-dependency-injection</code>.</li>
+<li>Ajouter le compte <strong><a href="https://github.com/rezakaziz">@rezakaziz</a></strong> comme <strong>collaborateur</strong>.</li>
+<li>Cloner votre dépôt et travailler de manière incrémentale :
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;progression&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div></li>
+<li>Vérifier régulièrement que le projet <strong>compile</strong> et que les <strong>tests passent</strong>.</li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>Les tests unitaires sont à écrire par l’étudiant lorsqu’ils ne sont pas fournis.</p>
+</div>
+<hr />
+<h2 id="contexte-general">Contexte général</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Le code fourni modélise, de manière volontairement simplifiée,
+un <strong>système de réservation de billets de train</strong>.</p>
+<p>Il comprend notamment :</p>
+<ul>
+<li>des <strong>DAO</strong> pour accéder à la base de données ;</li>
+<li>une <strong>connexion JDBC</strong> ;</li>
+<li>une première classe applicative (<code>Q1</code>) ;</li>
+<li>une classe <code>Application</code> représentant un niveau plus métier.</li>
+</ul>
+<p>L’interface utilisateur est volontairement ignorée afin de se concentrer
+sur <strong>l’architecture logicielle</strong>.</p>
+</div>
+<hr />
+<div class="admonition attention">
+<p class="admonition-title">Simplifications assumées</p>
+<ul>
+<li>Une seule connexion à la base est ouverte pour toute l’application.</li>
+<li>Il n’y a pas de gestion avancée des transactions.</li>
+<li>Certaines règles métier ne sont pas vérifiées (unicité des sièges, etc.).</li>
+</ul>
+</div>
+<hr />
+<h1 id="exercice-1-rendre-les-dependances-explicites">Exercice 1 : Rendre les dépendances explicites</h1>
+<div class="admonition note">
+<p class="admonition-title">Problème</p>
+<p>Dans l’architecture actuelle :</p>
+<ul>
+<li>les DAO créent eux-mêmes leurs connexions ;</li>
+<li>la connexion provient indirectement d’un <strong>singleton</strong> (<code>ConnectionFactory</code>) ;</li>
+<li>les dépendances sont <strong>cachées</strong> dans le code.</li>
+</ul>
+<p>Cette approche rend le code :</p>
+<ul>
+<li>fortement couplé ;</li>
+<li>difficile à tester ;</li>
+<li>difficile à faire évoluer.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Suppression des dépendances cachées</p>
+<p>🔧 <strong>Travail demandé</strong></p>
+<ol>
+<li>
+<p>Modifier la classe <code>AbstractDAO</code> afin que :</p>
+<ul>
+<li>la connexion soit passée <strong>en paramètre du constructeur</strong> ;</li>
+<li>aucune connexion ne soit créée de manière interne.</li>
+</ul>
+</li>
+<li>
+<p>Adapter le reste du code pour que :</p>
+<ul>
+<li>le projet compile ;</li>
+<li>les tests passent (ils peuvent être modifiés si nécessaire) ;</li>
+<li>le <code>Main</code> fonctionne toujours.</li>
+</ul>
+</li>
+</ol>
+<p>⚠️ <strong>Attention</strong></p>
+<p>Vous ne devez <strong>pas encore utiliser Guice</strong> dans cet exercice.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Réflexion</p>
+<p>En quoi le fait de créer une dépendance (connexion) à l’intérieur d’une classe
+est-il contraire aux principes d’une bonne architecture logicielle ?</p>
+</div>
+<hr />
+<h1 id="exercice-2-introduction-de-linjection-de-dependances-avec-guice">Exercice 2 : Introduction de l’injection de dépendances avec Guice</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Actuellement, le <code>Main</code> instancie manuellement :</p>
+<ul>
+<li>la connexion ;</li>
+<li>les DAO ;</li>
+<li>la classe <code>Q1</code>.</li>
+</ul>
+<p>Nous allons déléguer cette responsabilité à un <strong>framework d’injection de dépendances</strong>.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Mise en place de Guice</p>
+<p>🔧 <strong>Travail demandé</strong></p>
+<ol>
+<li>Créer un <strong>module Guice</strong> définissant les bindings nécessaires.</li>
+<li>Configurer l’injection pour créer :<ul>
+<li>la connexion ;</li>
+<li>les DAO ;</li>
+<li>la classe <code>Q1</code>.</li>
+</ul>
+</li>
+<li>Modifier le <code>Main</code> pour :<ul>
+<li>créer un <code>Injector</code> ;</li>
+<li>récupérer <code>Q1</code> depuis Guice ;</li>
+<li>lancer l’exécution.</li>
+</ul>
+</li>
+</ol>
+</div>
+<hr />
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Aucune classe métier ne doit utiliser directement <code>new</code> pour créer ses dépendances.</p>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Réflexion</p>
+<p>En quoi l’injection de dépendances facilite-t-elle l’écriture de tests unitaires ?</p>
+</div>
+<hr />
+<h1 id="exercice-3-introduction-dune-couche-service">Exercice 3 : Introduction d’une couche service</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>La classe <code>Q1</code> contient encore trop de logique applicative
+et manipule directement les DAO.</p>
+<p>Nous souhaitons introduire une <strong>couche service</strong> afin de :</p>
+<ul>
+<li>mieux séparer les responsabilités ;</li>
+<li>isoler le code métier ;</li>
+<li>rendre l’application plus évolutive.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question 3 — ReservationService</p>
+<p>🔧 <strong>Travail demandé</strong></p>
+<ol>
+<li>Créer une interface <code>ReservationService</code>.</li>
+<li>Fournir une implémentation concrète.</li>
+<li>Modifier la classe <code>Application</code> pour :<ul>
+<li>dépendre de <code>ReservationService</code> ;</li>
+<li>ne plus accéder directement aux DAO.</li>
+</ul>
+</li>
+<li>Adapter la configuration Guice et le <code>Main</code>
+   pour construire <code>Application</code> au lieu de <code>Q1</code>.</li>
+</ol>
+</div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>Application</code> représente ici un <strong>point d’entrée métier</strong>,
+et non une interface utilisateur.</p>
+</div>
+<hr />
+<h1 id="exercice-4-analyse-critique-de-larchitecture">Exercice 4 : Analyse critique de l’architecture</h1>
+<div class="admonition question">
+<p class="admonition-title">Question 4 — Réflexion</p>
+<p>Après avoir réalisé ce TP, répondez de manière argumentée aux questions suivantes :</p>
+<ul>
+<li>Quels problèmes l’injection de dépendances permet-elle de résoudre ?</li>
+<li>Le framework Guice est-il indispensable ou seulement facilitateur ?</li>
+<li>Quelles responsabilités doivent appartenir à la couche service ?</li>
+<li>Que se passerait-il si l’on changeait de base de données ?</li>
+<li>Comment cette architecture évoluerait-elle dans une application web ?</li>
+</ul>
+</div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Pour aller plus loin</p>
+<ul>
+<li>Chargement de la configuration via un fichier <code>.properties</code></li>
+<li>Gestion de pools de connexions</li>
+<li>Introduction de transactions</li>
+<li>Comparaison avec Spring et Jakarta EE</li>
+</ul>
+</div>
+<hr />
+<h2 id="bilan-attendu">✅ Bilan attendu</h2>
+<div class="admonition note">
+<p class="admonition-title">À la fin du TP</p>
+<p>Vous devez obtenir :</p>
+<ul>
+<li>une application <strong>sans singleton métier</strong> ;</li>
+<li>une architecture <strong>en couches clairement identifiées</strong> ;</li>
+<li>un code <strong>plus lisible, testable et maintenable</strong> ;</li>
+<li>une première maîtrise concrète de l’<strong>injection de dépendances</strong>.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
